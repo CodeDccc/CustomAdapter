@@ -1,7 +1,13 @@
 package edu.temple.customadapter;
 
+import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintAttribute;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintProperties;
+import androidx.constraintlayout.widget.ConstraintSet;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,27 +26,43 @@ public class ColorActivity extends AppCompatActivity {
 
     ArrayList<String> col;
     Spinner spinner2;
-   // TextView textView;
-   // ListView listView;
+    View bgCol;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //textView = findViewById(R.id.textView);
         spinner2 = findViewById(R.id.spinner2);
-        //listView = findViewById(R.id.listView);
-
+        bgCol = findViewById(R.id.bgCol);
         col = new ArrayList<>();
         fillArrayList ();
         final BaseAdapter adapter = new ColorAdapter(this, col);
-       // ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, col);
         spinner2.setAdapter(adapter);
-       // listView.setAdapter(adapter);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               // textView.setText(parent.getItemAtPosition(position).toString());
+                if (parent.getItemAtPosition(position).toString().equals("BLACK")) {
+                    bgCol.setBackgroundColor(Color.BLACK);
+                } else if (parent.getItemAtPosition(position).toString().equals("GREEN")) {
+                    bgCol.setBackgroundColor(Color.GREEN);
+                } else if (parent.getItemAtPosition(position).toString().equals("GRAY")) {
+                    bgCol.setBackgroundColor(Color.GRAY);
+                }else if(parent.getItemAtPosition(position).toString().equals("DARK GRAY")) {
+                    bgCol.setBackgroundColor(Color.DKGRAY);
+                }else if(parent.getItemAtPosition(position).toString().equals("CYAN")) {
+                    bgCol.setBackgroundColor(Color.CYAN);
+                }else if(parent.getItemAtPosition(position).toString().equals("RED")) {
+                    bgCol.setBackgroundColor(Color.RED);
+                }else if(parent.getItemAtPosition(position).toString().equals("MAGENTA")) {
+                    bgCol.setBackgroundColor(Color.MAGENTA);
+                }else if(parent.getItemAtPosition(position).toString().equals("LIGHT GRAY")) {
+                    bgCol.setBackgroundColor(Color.LTGRAY);
+                }else if(parent.getItemAtPosition(position).toString().equals("BLUE")) {
+                    bgCol.setBackgroundColor(Color.BLUE);
+                }else if(parent.getItemAtPosition(position).toString().equals("YELLO")) {
+                    bgCol.setBackgroundColor(Color.YELLOW);
+                }
 
             }
 

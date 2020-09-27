@@ -50,6 +50,8 @@ public class ColorAdapter extends BaseAdapter {
         TextView textView = new TextView(context);
         textView.setText(getItem(position).toString());
         textView.setBackgroundColor(Color.WHITE);
+        textView.setTextSize(25);
+        textView.setPadding(10,10,10,10);
         return textView;
     }
     @Override
@@ -57,7 +59,8 @@ public class ColorAdapter extends BaseAdapter {
         TextView textView = new TextView(context);
         textView.setText(getItem(position).toString());
         textView.setBackgroundColor(colors[position % colors.length]);
-
+        textView.setTextSize(25);
+        textView.setPadding(10,10,10,10);
         return textView;
     }
 }
